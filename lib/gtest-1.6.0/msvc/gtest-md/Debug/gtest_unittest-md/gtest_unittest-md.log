@@ -1,0 +1,3 @@
+﻿  gtest_unittest.cc
+gtestd.lib(gtest-all.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  gtest_unittest-md.vcxproj -> D:\2.CurrentProjects\Sethengine\libs\gtest-1.6.0\msvc\gtest-md/Debug\gtest_unittest.exe

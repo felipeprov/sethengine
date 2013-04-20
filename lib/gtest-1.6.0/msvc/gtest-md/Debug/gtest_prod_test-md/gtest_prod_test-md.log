@@ -1,0 +1,5 @@
+﻿  production.cc
+  gtest_prod_test.cc
+  Generating Code...
+gtest_prod_test.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  gtest_prod_test-md.vcxproj -> D:\2.CurrentProjects\Sethengine\libs\gtest-1.6.0\msvc\gtest-md/Debug\gtest_prod_test.exe
