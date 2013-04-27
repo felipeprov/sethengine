@@ -1,0 +1,57 @@
+﻿Build started 27/04/2013 10:40:02.
+     1>Project "D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\GLFWDLL.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\\..\..\lib" /I"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\\..\..\lib\win32" /ZI /nologo /W3 /WX- /Od /Oy- /D _GLFW_NO_DLOAD_WINMM /D _GLFW_NO_DLOAD_GDI32 /D GLFW_BUILD_DLL /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GLFWDLL_EXPORTS /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Debug\GLFWDLL\\" /Fd"Win32\Debug\GLFWDLL\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\lib\enable.c ..\..\lib\fullscreen.c ..\..\lib\glext.c ..\..\lib\image.c ..\..\lib\init.c ..\..\lib\input.c ..\..\lib\joystick.c ..\..\lib\stream.c ..\..\lib\tga.c ..\..\lib\thread.c ..\..\lib\time.c ..\..\lib\win32\win32_dllmain.c ..\..\lib\win32\win32_enable.c ..\..\lib\win32\win32_fullscreen.c ..\..\lib\win32\win32_glext.c ..\..\lib\win32\win32_init.c ..\..\lib\win32\win32_joystick.c ..\..\lib\win32\win32_thread.c ..\..\lib\win32\win32_time.c ..\..\lib\win32\win32_window.c ..\..\lib\window.c
+         window.c
+         win32_window.c
+         win32_time.c
+         win32_thread.c
+         win32_joystick.c
+         win32_init.c
+         win32_glext.c
+         win32_fullscreen.c
+         win32_enable.c
+         win32_dllmain.c
+         time.c
+         thread.c
+         tga.c
+         stream.c
+         joystick.c
+         input.c
+         init.c
+         image.c
+         glext.c
+         fullscreen.c
+         Generating Code...
+         Compiling...
+         enable.c
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\Win32\GLFW.dll" /INCREMENTAL /NOLOGO winmm.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\\..\..\lib\win32\glfwdll.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\Win32\GLFW.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\Debug\Win32\GLFWDLL.lib" /MACHINE:X86 /DLL Win32\Debug\GLFWDLL\enable.obj
+         Win32\Debug\GLFWDLL\fullscreen.obj
+         Win32\Debug\GLFWDLL\glext.obj
+         Win32\Debug\GLFWDLL\image.obj
+         Win32\Debug\GLFWDLL\init.obj
+         Win32\Debug\GLFWDLL\input.obj
+         Win32\Debug\GLFWDLL\joystick.obj
+         Win32\Debug\GLFWDLL\stream.obj
+         Win32\Debug\GLFWDLL\tga.obj
+         Win32\Debug\GLFWDLL\thread.obj
+         Win32\Debug\GLFWDLL\time.obj
+         Win32\Debug\GLFWDLL\win32_dllmain.obj
+         Win32\Debug\GLFWDLL\win32_enable.obj
+         Win32\Debug\GLFWDLL\win32_fullscreen.obj
+         Win32\Debug\GLFWDLL\win32_glext.obj
+         Win32\Debug\GLFWDLL\win32_init.obj
+         Win32\Debug\GLFWDLL\win32_joystick.obj
+         Win32\Debug\GLFWDLL\win32_thread.obj
+         Win32\Debug\GLFWDLL\win32_time.obj
+         Win32\Debug\GLFWDLL\win32_window.obj
+         Win32\Debug\GLFWDLL\window.obj
+            Creating library D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\Debug\Win32\GLFWDLL.lib and object D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\Debug\Win32\GLFWDLL.exp
+         GLFWDLL.vcxproj -> D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\Debug\Win32\GLFW.dll
+     1>Done Building Project "D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\GLFWDLL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:18.48

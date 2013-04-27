@@ -1,0 +1,14 @@
+﻿Build started 27/04/2013 10:40:26.
+     1>Project "D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\dynamic.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\../../include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Debug\dynamic\\" /Fd"Win32\Debug\dynamic\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\tests\dynamic.c
+         dynamic.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\..\..\tests\dynamic_debug.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\..\..\tests\dynamic_debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\..\..\tests\dynamic_debug.lib" /MACHINE:X86 Win32\Debug\dynamic\dynamic.obj
+         "D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\Debug\Win32\GLFWDLL.lib"
+         dynamic.vcxproj -> D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\..\..\tests\dynamic_debug.exe
+     1>Done Building Project "D:\2.CurrentProjects\git\sethengine\lib\glfw-2.7.7\support\msvc110\dynamic.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.82
