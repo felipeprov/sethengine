@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "utils\list.h"
 
 #ifdef __cplusplus
 extern "C"  {
@@ -20,11 +20,47 @@ extern "C"  {
 #define png_infopp_NULL (png_infopp)NULL
 #define int_p_NULL (int*)NULL
 
+typedef struct ImageStruct_t
+{
+	Image_t* img;
+	char* filename;
+	struct list_head next;
+}ImageStruct_t;
+
+static struct list_head g_image_list;
+static int firstTime = 1;
+
+static Image_t* searchImagesLoadeds(char* name)
+{
+	struct list_head *p;
+	ImageStruct_t* img;
+
+	list_for_each(p, &g_image_list)
+	{
+		img = list_entry(p, ImageStruct_t, next);
+		if(strcmp(img->filename, name) == 0)
+		{
+			return img->img;
+		}
+	}
+
+	return 0;
+}
+
+static void addImage(Image_t* img, char* name)
+{
+	ImageStruct_t* node = (ImageStruct_t*)malloc(sizeof(ImageStruct_t));
+
+	node->img = img;
+	node->filename = name;
+	list_add(&node->next, &g_image_list);
+}
 
 #ifdef __cplusplus
 extern "C"  
 #endif  
-int ImageLoad_PNG(Image_t* image, char* name)
+
+int ImageLoad_PNG(Image_t** image, char* name)
 {
 	png_structp png_ptr;
 	png_infop info_ptr;
@@ -36,10 +72,24 @@ int ImageLoad_PNG(Image_t* image, char* name)
 	unsigned int row_bytes;
 	png_bytepp row_pointers;
 	int i;
+	Image_t* img_tmp;
+
+	if(firstTime)
+	{
+		firstTime = 0;
+		INIT_LIST_HEAD(&g_image_list);
+	}
+	
+	img_tmp = searchImagesLoadeds(name);
+	if(img_tmp != 0)
+	{
+		*image = img_tmp;
+		return 1;
+	}
+	img_tmp = (Image_t*)malloc(sizeof(Image_t));
+	*image = img_tmp;
 
 	fp = fopen(name, "rb+");
-	
-	
 	
 	if (fp == NULL)
 		return 0;
@@ -123,14 +173,14 @@ int ImageLoad_PNG(Image_t* image, char* name)
 	//fread(buffer, 1, 8, fp);
 	png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING | PNG_TRANSFORM_EXPAND, 0);
 
-	image->width = info_ptr->width;
-	image->hight = info_ptr->height;
+	img_tmp->width = info_ptr->width;
+	img_tmp->hight = info_ptr->height;
 	switch (info_ptr->color_type) {
 		case PNG_COLOR_TYPE_RGBA:
-			image->hasAlpha = 1;
+			img_tmp->hasAlpha = 1;
 			break;
 		case PNG_COLOR_TYPE_RGB:
-			image->hasAlpha = 0;
+			img_tmp->hasAlpha = 0;
 			break;
 		default:
 			printf("Color type %s not supported \n", info_ptr->color_type);
@@ -139,15 +189,15 @@ int ImageLoad_PNG(Image_t* image, char* name)
 			return 0;
 	}
 	row_bytes = png_get_rowbytes(png_ptr, info_ptr);
-	image->texture = (unsigned char*) malloc(row_bytes * image->hight);
+	img_tmp->texture = (unsigned char*) malloc(row_bytes * img_tmp->hight);
 
 	row_pointers = png_get_rows(png_ptr, info_ptr);
 
-	for (i = 0; i < image->hight; i++) {
+	for (i = 0; i < img_tmp->hight; i++) {
 		// note that png is ordered top to
 		// bottom, but OpenGL expect it bottom to top
 		// so the order or swapped
-		memcpy(image->texture+(row_bytes * (image->hight-1-i)), row_pointers[i], row_bytes);
+		memcpy(img_tmp->texture+(row_bytes * (img_tmp->hight-1-i)), row_pointers[i], row_bytes);
 	}
 
 	/* Clean up after the read,
@@ -157,13 +207,13 @@ int ImageLoad_PNG(Image_t* image, char* name)
 	/* Close the file */
 	fclose(fp);
 
-	glGenTextures(1, &image->texture_handler);
-	glBindTexture(GL_TEXTURE_2D, image->texture_handler);
+	glGenTextures(1, &img_tmp->texture_handler);
+	glBindTexture(GL_TEXTURE_2D, img_tmp->texture_handler);
 
 	//glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glTexImage2D(GL_TEXTURE_2D, 0, 4, image->width,
-		image->hight, 0, image->hasAlpha ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE,
-		image->texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, 4, img_tmp->width,
+		img_tmp->hight, 0, img_tmp->hasAlpha ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE,
+		img_tmp->texture);
 			 
 
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
@@ -180,6 +230,9 @@ int ImageLoad_PNG(Image_t* image, char* name)
 	error = glGetError();
 	if(error != GL_NO_ERROR)
 		printf("OpenGL Error %d %s\n", error, (const char*)glewGetErrorString(error));
+	
+	addImage(img_tmp, name);
+	
 	/* That's it */
 	return 1;
 

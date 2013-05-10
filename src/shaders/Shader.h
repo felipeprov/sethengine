@@ -16,7 +16,8 @@ GLuint ShaderCreateProgram(GLuint* shaderList, int size);
 GLint ShaderGetAttrib(GLint program, const GLchar* attribName) ;
 GLint ShaderGetUniform(GLint program, const GLchar* uniformName) ;
 void ShaderSetUniform(GLint location, int size, GLfloat* value);
-
+void ShaderSetUniformInt(GLint location, int value);
+void ShaderSetUniform4f(GLint location, float v0, float v1, float v2, float v3);
 
 #ifdef __cplusplus
 }

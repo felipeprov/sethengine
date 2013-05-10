@@ -16,7 +16,7 @@ typedef struct Image_t
 extern "C" {  
 #endif  
 
-int ImageLoad_PNG(Image_t* image, char* name);
+int ImageLoad_PNG(Image_t** image, char* name);
 void ImageSetTexture(Image_t* img);
 
 #ifdef __cplusplus

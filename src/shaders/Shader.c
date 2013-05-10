@@ -108,3 +108,13 @@ void ShaderSetUniform(GLint location, int size, GLfloat* value)
 {
 	glUniformMatrix4fv(location,1,0, value);
 }
+
+void ShaderSetUniformInt(GLint location, int value)
+{
+	glUniform1i(location, value);
+}
+
+void ShaderSetUniform4f(GLint location, float v0, float v1, float v2, float v3)
+{
+	glUniform4f(location, v0, v1, v2, v3);
+}

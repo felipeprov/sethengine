@@ -68,6 +68,14 @@ void Component_RegisterNew(char* name_, createComponentFunction func_)
 	list_add(&comp->list, &g_components_head.list);
 }
 
+void Component_Refresh(struct Component_t* comp_)
+{
+	if(comp_->onRefresh)
+	{
+		comp_->onRefresh(comp_);
+	}
+}
+
 Component_t* Component_New(GameObject_t* parent, char* name_)
 {
 	struct list_head* pos;
